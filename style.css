@@ -1,0 +1,117 @@
+body {
+    background-image: url(img/my-music-background.jpg);
+    width: 100%;
+    margin: auto;
+}
+
+div {
+    display: block;
+}
+#container {
+    border: 5px solid green;
+    background-color: white;
+    border: 10px solid white;
+    background-image: url(img/music-flower.jpg);
+}
+
+#title {
+    background-color: rgb(93, 33, 243);
+    width: 100%;
+    height: 60px;
+    margin: auto;
+    color: white;
+}
+
+#top-title-left {
+    text-align: center;
+    float: left;
+    margin-top: 15px;
+    display: block;
+    font-size: 25px;
+}
+
+#top-title-right {
+    text-align: center;
+    display: block;
+    float: left;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+#search-title {
+    margin-top: 15px;
+    margin-left: 20px;
+    float: left;
+    display: block;
+}
+
+#login {
+    float: left;
+    margin-top: 15px;
+    margin-left: 15px;
+    display: block;
+}
+
+#poster2 {
+    font-size: 14px;
+}
+
+.date {
+    border-color: #C2E9E9;
+    border-bottom-style: dashed;
+    border-bottom-width: 2px;
+
+}
+
+.status {
+    /* 1 */
+    border: 5px solid blue;
+    /* 2 */
+    background-color: #e8fbfb;
+    padding: 5px;
+    margin-top: 10px;
+    /* 3 */
+    text-align: justify;
+    /* 4 */
+    border: 4px solid #C2E9E9;
+    border-radius: 15px;
+}
+
+/* 5 */
+#navigation {
+    border: 5px solid #C2E9E9;
+    background-color: #e8fbfb;
+    border-radius: 15px;
+    padding: 5px;
+    margin-top: 15px;
+    width: 150px;
+    float: left;
+}
+
+#navigation a {
+    font-family: 'Times New Roman';
+}
+
+#navigation a:hover {
+    background-color: yellow;
+    font-size: 18px;
+}
+
+/* 5 */
+#tit-post {
+    margin-left: 180px ;
+}
+
+.status img {
+    /* 3 */
+    float: right;
+}
+
+#container-login {
+    background-color: red;
+}
+
+.form-input input {
+    color: red;
+}
+
