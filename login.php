@@ -1,4 +1,7 @@
 <?php
+    session_start();
+?>
+<?php
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -8,15 +11,23 @@
 
     if(isset($_POST['username'])) {
         $custPhone=$_POST['username'];
-        $custPasswd=$_POST['password'];
+        //$custPasswd=$_POST['password'];
         $custPasswd=md5($_POST['password']);
-
-        $sql="select * from customer where custPhone='".$custPhone."'AND custPasswd='".$custPasswd."' limit 1";
+        $sql="select * from accounts where accPhone='".$custPhone."'AND accPasswd='".$custPasswd."' limit 1";
         $result = $conn->query($sql);
 
-        if(mysqli_num_rows($result) == 1) {
-            header("Location: ../RentCar/main.php");
-            exit();
+        if(mysqli_num_rows($result) == 1 ) {
+            $row = $result->fetch_assoc();
+            $_SESSION['user_login'] = $custPhone;
+            if($row['accType'] == 2) {
+                header("Location: ./main.php");
+                exit();
+            }
+            else if($row['accType'] == 1) {
+                echo "you are employee";
+                exit();
+            }
+            
         }
         else {
             echo "Incorred Password or Username";

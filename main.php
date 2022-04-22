@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="vn">
 <head>
@@ -18,61 +21,47 @@
 			Đăng Tin 
         </div>
         <div id="login">
-			Đăng Nhập
+			<?php
+				if(!isset($_SESSION['user_login']))
+					echo "<a href=\"login.php\">Đăng Nhập</a>";
+			?>
         </div>
+		<div id="usernameA">
+			<?php
+				if(isset($_SESSION['user_login']) && $_SESSION['user_login'])
+					echo $_SESSION['user_login'];
+			?>
+        </div>
+
+		<div id="logout">
+			<?php
+				if(isset($_SESSION['user_login']) && $_SESSION['user_login'])
+				echo "<a href=\"logout.php\">Đăng xuất</a>";
+			?>
+		</div>
     </div>
-		<div id="navigation">
-			<h2>Useful Links</h2>
-				<ul>
-				<li><a href="https://www.youtube.com/watch?v=rIXhXaQ8tiM" target="_blank">Ngày Đầu Tiên - Đức Phúc</a></li>
-				<li><a href="https://www.youtube.com/watch?v=QxJmITgSYJs" target="_blank">Nếu Là Anh - The Men</a></li>
-				<li><a href="https://www.youtube.com/watch?v=8zRy02Wl1JA" target="_blank">Thương Em Đến Già - Lê Bảo Bình</a></li>
-				</ul>
-		</div>
 
-		<div id="tit-post">
-			<div class="status">
-				<h2><span class="date">12/2/2014:</span>Coming Home</h2>
-				<p>
-					<img src="img/coming-home.jpg" />
-				</p>
-
-				<p>
-					Trong cái đầu óc đang mụ mị vì những cung đàn, nốt nhạc của hắn,
-					lờ mờ hiện ra một thứ gì đó rất mờ hồ và xa xôi rồi từ từ hiện rõ
-					hình ảnh của một con đường vắng, gồ ghề bởi những mô đất nhấp nhô,
-					khúc khủyu được soi rọi bởi thứ ánh sáng nhạt nhòe và yếu ớt của những ngọn đèn vàng.
-				</p>
-				<p>
-					<a href="http://bit.ly/1houlRR">Read more...</a>
-				</p>
-			</div>
-		<p class="spacer"></p>
-		
-		<div class="status">
-			<h2><span class="date">10/1/2013:</span>Believe</h2>
-
-			<p>
-				<img src="img/believe.jpg" />
-			</p>
-
-			<p>
-				Số phận, phải chăng thứ này chi phối cả cuộc đời chúng ta,
-				là điều không thể thay đổi. Đừng bao giờ nói vậy,
-				bạn có bao giờ nghĩ rằng số phận nằm trong chính bàn tay chúng ta.
-				Mỗi ngày ta sống, cố gắng từng phút giây chẳng phải là để thay đổi tương lai
-				và số phận hay sao? Nhiều lúc gặp những thất bại, khổ đau bạn nản chí
-				và không muốn đi tiếp nữa. Hãy nhớ rằng: "Không có con đường trải hoa nào
-				dẫn đến những điều tốt đẹp cả. Hy vọng là điều kỳ diệu,
-				một điều cần được nuôi dưỡng và ấp ủ, và đổi lại nó sẽ làm chúng ta luôn sống động.
-				Hy vọng có thể được tìm thấy trong mỗi chúng ta và nó có thể mang ánh sáng
-				vào những nơi tăm tối nhất. Đừng bao giờ đánh mất hy vọng...”
-			</p>
-			<p>
-				<a href="http://bit.ly/1fYfPMA">Read more...</a>
-			</p>
-		</div>
-		</div>
+	<div id="car-list">
+		<?php
+			$servername = "localhost";
+			$username = "root";
+			$password = "";
+			$dbname = "rentCar";
+			$conn = new mysqli($servername, $username,$password, $dbname)
+				or die ("Connection failed " . $conn->connect_error);
+			
+			$query = "SELECT * FROM car c JOIN carType ct WHERE c.typeid=ct.typeid ORDER BY c.typeid asc";
+			$result = $conn->query($query) or die("Query failed: ".$conn->error);
+			while ($row = $result->fetch_assoc()){
+				echo "<div class=\"car-info\">
+					<img class=\"carImg\" src='imgLoad.php?name=$row[carID]'>
+					<b>LOẠI XE	: </b>$row[typeName]<br>
+					<b>SỐ CHỖ 	: </b>$row[seatNum]<br>
+					<b>BIỂN SỐ	: </b>$row[carNumPlate]<br>
+					<b>GIÁ THUÊ	: </b>$row[price] VNĐ/ngày<br>
+				</div>";
+			}
+		?>
 	</div>
 	<p class="spacer"> </p>
 
