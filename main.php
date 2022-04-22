@@ -43,14 +43,11 @@
 
 	<div id="car-list">
 		<?php
-			$servername = "localhost";
-			$username = "root";
-			$password = "";
-			$dbname = "rentCar";
-			$conn = new mysqli($servername, $username,$password, $dbname)
-				or die ("Connection failed " . $conn->connect_error);
-			
-			$query = "SELECT * FROM car c JOIN carType ct WHERE c.typeid=ct.typeid ORDER BY c.typeid asc";
+			require 'connection.php';
+			$searchword = '';
+			$query = "SELECT * FROM car c JOIN carType ct WHERE c.typeid=ct.typeid 
+				AND (ct.typename LIKE '%$searchword%' OR ct.seatNum LIKE '%$searchword%')
+				ORDER BY c.typeid asc";
 			$result = $conn->query($query) or die("Query failed: ".$conn->error);
 			while ($row = $result->fetch_assoc()){
 				echo "<div class=\"car-info\">
