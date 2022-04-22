@@ -1,10 +1,5 @@
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "rentCar";
-    $conn = new mysqli($servername, $username,$password, $dbname)
-        or die ("Connection failed " . $conn->connect_error);
+    require 'connection.php';
     
     if(isset($_FILES['img_file']['name']) && getimagesize($_FILES['img_file']['tmp_name']) != false){
         $image = file_get_contents($_FILES['img_file']['tmp_name']);

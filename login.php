@@ -2,12 +2,7 @@
     session_start();
 ?>
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "rentCar";
-    $conn = new mysqli($servername, $username,$password, $dbname)
-        or die ("Connection failed " . $conn->connect_error);
+    require 'connection.php';
 
     if(isset($_POST['username'])) {
         $custPhone=$_POST['username'];
