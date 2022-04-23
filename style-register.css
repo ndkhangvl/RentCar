@@ -2,15 +2,15 @@ body{
 	margin: 0 auto;
 }
 
-.container-login{
+.container-register {
 	width: 500px;
 	height: 450px;
 	text-align: center;
 	margin: 0 auto;
-	margin-top: 200px;
+	margin-top: 50px;
 }
 
-.container-login h1 {
+.container-register h1 {
     color: 	rgb(135,206,250);
     font-size: 40px;
     font-style: italic;
@@ -52,6 +52,20 @@ input[type="text"],input[type="password"]{
 
 .form-input:nth-child(2)::before{
 	content: "\f023";
+}
+
+.form-input:nth-child(3)::before{
+	content: "\f023";
+}
+
+.form-input:nth-child(4)::before{
+	content: "\f0c0";
+    font-size: 30px;
+}
+
+.form-input:nth-child(5)::before{
+	content: "\f003";
+    font-size: 30px;
 }
 
 .btn-login{

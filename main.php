@@ -12,7 +12,7 @@
 <div id="container">
     <div id="title">
 		<div id="top-title-left">
-			Thuê Xe KD
+		<a href="../RentCar/main.php">RENT CAR KD
         </div>
         <div id="search-title">
             <form method="GET" action="main.php">
@@ -34,14 +34,14 @@
 		<div id="usernameA">
 			<?php
 				if(isset($_SESSION['user_login']) && $_SESSION['user_login'])
-					echo $_SESSION['user_login'];
+					echo "Hello, " . $_SESSION['user_login'];
 			?>
         </div>
 
 		<div id="logout">
 			<?php
 				if(isset($_SESSION['user_login']) && $_SESSION['user_login'])
-				echo "<a href=\"logout.php\">Đăng xuất</a>";
+				echo "<a href=\"logout.php\">Log Out</a>";
 			?>
 		</div>
     </div>

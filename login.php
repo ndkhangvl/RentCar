@@ -2,8 +2,8 @@
     session_start();
 ?>
 <?php
+    $usernameErr = $passwordErr = "";
     require 'connection.php';
-
     if(isset($_POST['username'])) {
         $custPhone=$_POST['username'];
         //$custPasswd=$_POST['password'];
@@ -25,8 +25,17 @@
             
         }
         else {
-            echo "Incorred Password or Username";
-            exit();
+            if (isset($_POST['username'])) {
+                $username = mysqli_real_escape_string($conn, $_POST['username']);
+                $password = mysqli_real_escape_string($conn, $_POST['password']);
+              
+                if (empty($username)) {
+                    $usernameErr = '* Username is required';
+                }
+                if (empty($password)) {
+                    $passwordErr = '* Password is required';
+                }
+            }
         }
     }
 ?>
@@ -43,10 +52,20 @@
 	<!-- <img src="image/login.png"/> -->
 		<form method="POST" action="#">
 			<div class="form-input">
-				<input type="text" name="username" placeholder="Enter the User Name"/>	
+				<table>
+                    <tr>
+                        <td><input type="text" name="username" placeholder="Enter the User Name"/></td>
+                        <td><span class="error"><?php echo $usernameErr; ?></span></td>
+                    </tr>
+                <table>
 			</div>
 			<div class="form-input">
-				<input type="password" name="password" placeholder="Password"/>
+                <table>
+                    <tr>
+                        <td><input type="password" name="password" placeholder="Password"/></td>
+                        <td><span class="error"><?php echo $passwordErr; ?></span></td>
+                    </tr>
+                </table>
 			</div>
             <span id="error"></span>
 			<input type="submit" type="submit" value="LOGIN" class="btn-login"/>
