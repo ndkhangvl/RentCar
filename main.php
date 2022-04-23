@@ -12,7 +12,7 @@
 <div id="container">
     <div id="title">
 		<div id="top-title-left">
-		<a href="../RentCar/main.php">RENT CAR KD
+		<a href="../RentCar/main.php">RENT CAR KD</a>
         </div>
         <div id="search-title">
             <form method="GET" action="main.php">
