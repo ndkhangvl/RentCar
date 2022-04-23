@@ -8,6 +8,17 @@
         $custPhone=$_POST['username'];
         //$custPasswd=$_POST['password'];
         $custPasswd=md5($_POST['password']);
+        if (isset($_POST['username'])) {
+            $username = mysqli_real_escape_string($conn, $_POST['username']);
+            $password = mysqli_real_escape_string($conn, $_POST['password']);
+          
+            if (empty($username)) {
+                $usernameErr = '* Username is required';
+            }
+            if (empty($password)) {
+                $passwordErr = '* Password is required';
+            }
+        } else {
         $sql="select * from accounts where accPhone='".$custPhone."'AND accPasswd='".$custPasswd."' limit 1";
         $result = $conn->query($sql);
 
@@ -21,20 +32,7 @@
             else if($row['accType'] == 1) {
                 echo "you are employee";
                 exit();
-            }
-            
-        }
-        else {
-            if (isset($_POST['username'])) {
-                $username = mysqli_real_escape_string($conn, $_POST['username']);
-                $password = mysqli_real_escape_string($conn, $_POST['password']);
-              
-                if (empty($username)) {
-                    $usernameErr = '* Username is required';
-                }
-                if (empty($password)) {
-                    $passwordErr = '* Password is required';
-                }
+            } 
             }
         }
     }
