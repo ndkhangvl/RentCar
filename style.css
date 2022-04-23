@@ -132,9 +132,10 @@ a {
 }
 #usernameA {
     float: left;
-    margin-top: 5px;
+    margin-top: 10px;
     margin-left: 600px;
     display: block;
+    color: #FFD154;
 }
 
 #car-list {
