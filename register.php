@@ -1,70 +1,81 @@
 <!-- if else chua duoc :)) -->
 <?php
+    require 'connection.php';
     $usernameErr = $passwordErr = $repasswordErr = $nameErr = $emailErr = "";
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "rentCar";
-    $conn = new mysqli($servername, $username,$password, $dbname)
-        or die ("Connection failed " . $conn->connect_error);
-
-        if(isset($_POST["username"]) && isset($_POST["password"])
-        && isset($_POST["name"]) && isset($_POST["e-mail"])) {
-            $accPhone = $_POST["username"];
-            $accPasswd = $_POST["password"];
-            $accPasswd=md5($_POST['password']);
-            $accName = $_POST["name"];
-            $accMail = $_POST["e-mail"];
-            if (isset($_POST['username'])) {
-                $accPhone = mysqli_real_escape_string($conn, $_POST['username']);
-                $accPasswd = mysqli_real_escape_string($conn, $_POST['password']);
-                $accName= mysqli_real_escape_string($conn, $_POST['name']);
-                $accMail = mysqli_real_escape_string($conn, $_POST['e-mail']);
+    $accPhone = $accPasswd = $accRePasswd = $accName = $accMail = "";
+    if(isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["re-password"])
+    && isset($_POST["name"]) && isset($_POST["e-mail"])) {
+        $accPhone = $_POST["username"];
+        $accPasswd = $_POST['password'];
+        $accPasswd=md5($accPasswd);
+        $accRePasswd = $_POST['re-password'];
+        $accRePasswd = md5($accRePasswd);
+        $accName = $_POST["name"];
+        $accMail = $_POST["e-mail"];
+        
+        $phone = mysqli_real_escape_string($conn, $_POST['username']);
+        $passwd = mysqli_real_escape_string($conn, $_POST['password']);
+        $rePasswd = mysqli_real_escape_string($conn, $_POST['re-password']);
+        $name= mysqli_real_escape_string($conn, $_POST['name']);
+        $email = mysqli_real_escape_string($conn, $_POST['e-mail']);
               
-                if (empty($accPhone)) {
-                    $usernameErr = '* Username is required';
-                } else {
+        if (empty($_POST["username"])) {
+            $usernameErr = '* Username is required';
+        } else {
                     // Kiểm tra xem số điện thoại đã đúng định dạng hay chưa 
-                    if (!preg_match("/^[0-9]*$/", $accPhone)) {
-                        $usernameErr = "Bạn chỉ được nhập giá trị số.";
-                    }
+            if (!preg_match("/^[0-9]*$/", $phone)) {
+                $usernameErr = "Bạn chỉ được nhập giá trị số.";
+            }
                     //Kiểm tra độ dài của số điện thoại 
-                    if (strlen($accPhone) != 10) {
-                        $usernameErr = "Số điện thoại phải là 10 ký tự.";
-                    }
-                }
-                if (empty($_POST["password"])) {
-                    $passwordErr = '* Password is required';
-                } else {
-                    $accPasswd = mysqli_real_escape_string($conn, $_POST['password']);
-                }
+            if (strlen($phone) != 10) {
+                $usernameErr = "Số điện thoại phải là 10 ký tự.";
+            }
+        }
 
-                if (empty($_POST["name"])) {
-                    $nameErr = "Name là trường bắt buộc.";
-                } else {
-                    $name = input_data($_POST["name"]);
+        if (empty($_POST["password"])) {
+            $passwordErr = '* Password is required';
+        } else {
+            $accPasswd = mysqli_real_escape_string($conn, $_POST['password']);
+            $accPasswd=md5($accPasswd);
+        }
+
+        if (empty($_POST["re-password"])) {
+            $repasswordErr = '* Re-Password is required';
+        } else if($passwd != $rePasswd) {
+            $repasswordErr = '* Re-Password is not same Password';
+            $accRePasswd ="";
+        }else {
+            $accRePasswd=md5($accRePasswd);
+        }
+
+        if (empty($_POST["name"])) {
+            $nameErr = "Name là trường bắt buộc.";
+        } else {
+            $name = $_POST["name"];
                     // Kiểm tra và chỉ cho phép nhập chữ và khoảng trắng 
-                    if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-                        $nameErr = "Bạn chỉ được nhập chữ cái và khoảng trắng.";
-                    }
-                }
+            if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+                $nameErr = "Bạn chỉ được nhập chữ cái và khoảng trắng.";
+                $accName = "";
+            }
+        }
 
-                if (empty($_POST["email"])) {
-                    $emailErr = "Email là trường bắt buộc.";
-                } else {
-                    $email = input_data($_POST["email"]);
+        if (empty($_POST["e-mail"])) {
+            $emailErr = "Email là trường bắt buộc.";
+        } else {
+            $email = $_POST["e-mail"];
                     // Kiểm tra email có đúng định dạng hay không 
-                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                        $emailErr = "Email không đúng định dạng.";
-                    }
-                }
-            } else {
-                $query = "INSERT INTO accounts(accPhone,accPasswd,accName,accMail,accType) 
-                VALUES ('$accPhone','$accPasswd','$accName','$accMail','1')";
-                $result = $conn->query($query)
-                or die("Query failed: " . $conn->error);
-            }     
-        } 
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $emailErr = "Email không đúng định dạng.";
+                $accMail = "";
+            }
+        }
+        if($accPhone !="" && $accPasswd != "" && $accRePasswd != "" && $accName != "" && $accMail !="") {
+            $query = "INSERT INTO accounts(accPhone,accPasswd,accName,accMail,accType) 
+            VALUES ('$accPhone','$accPasswd','$accName','$accMail','2')";
+            $result = $conn->query($query)
+            or die("Query failed: " . $conn->error);
+        }   
+    }
 ?>
 <!DOCTYPE html>
 <html>
