@@ -9,44 +9,8 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<?php include('testmain.php') ?>
+<?php include('header.php') ?>
 	<div id="container">
-		<div id="title">
-			<div id="top-title-left">
-			<a href="../RentCar/main.php">RENT CAR KD</a>
-			</div>
-			<div id="search-title">
-				<form method="GET" action="main.php">
-					<input type="search" size="50" name="searchword"></input>
-					<input type="submit" value="Tìm kiếm">
-				</form>
-			</div>
-			<!--
-				<div id="top-title-right">
-					Đăng Tin 
-				</div>
-			-->
-			<div id="login">
-				<?php
-					if(!isset($_SESSION['user_login']))
-						echo "<a href=\"login.php\">Đăng Nhập</a>";
-				?>
-			</div>
-			<div id="usernameA">
-				<?php
-					if(isset($_SESSION['user_login']) && $_SESSION['user_login'])
-						echo "Hello, " . $_SESSION['user_login'];
-				?>
-			</div>
-
-			<div id="logout">
-				<?php
-					if(isset($_SESSION['user_login']) && $_SESSION['user_login'])
-					echo "<a href=\"logout.php\">Log Out</a>";
-				?>
-			</div>
-		</div>
-
 		<div id="car-list">
 			<?php
 				require 'connection.php';

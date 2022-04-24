@@ -1,5 +1,4 @@
 body {
-    background-image: url(img/my-music-background.jpg);
     width: 100%;
     margin: auto;
 }
@@ -11,33 +10,33 @@ div {
 a {
     text-decoration: none;
     font-size: 20px;
-    color: #FFD154;
+    color:#61DBFB;
     font-style: italic;
+    font-family: 'Poppins',sans-serif;
+}
 
+.logout {
+    color: white;
+    font-style: italic;
+    font-family: 'Poppins',sans-serif;
 }
 
 #container {
     border: 5px solid green;
     background-color: white;
     border: 10px solid white;
-    background-image: url(img/music-flower.jpg);
-}
-
-#title {
-    background-color: #3D3D3D;
-    width: 100%;
-    height: 60px;
-    margin: auto;
-    border-radius: 5px;
 }
 
 #top-title-left {
-    text-align: center;
-    float: left;
-    margin-top: 15px;
-    margin-left: 10px;
-    display: block;
-    font-size: 25px;
+    font-size:50px;
+    color:#61DBFB;
+    animation :animate 4s infinite linear;
+}
+@keyframes animate {
+    0%   {color: red;}
+    25%  {color: yellow;}
+    50%  {color: blue;}
+    100% {color: green;} 
 }
 
 #top-title-right {
@@ -60,68 +59,6 @@ a {
     margin-top: 15px;
     margin-left: 750px;
     display: block;
-}
-
-#poster2 {
-    font-size: 14px;
-}
-
-.date {
-    border-color: #C2E9E9;
-    border-bottom-style: dashed;
-    border-bottom-width: 2px;
-
-}
-
-.status {
-    /* 1 */
-    border: 5px solid rgb(78, 78, 178);
-    /* 2 */
-    background-color: #FFD154;
-    padding: 5px;
-    margin-top: 10px;
-    /* 3 */
-    text-align: justify;
-    /* 4 */
-    border: 4px solid #C2E9E9;
-    border-radius: 15px;
-}
-
-#navigation {
-    border: 5px solid #C2E9E9;
-    background-color: #e8fbfb;
-    border-radius: 15px;
-    padding: 5px;
-    margin-top: 15px;
-    width: 150px;
-    float: left;
-}
-
-#navigation a {
-    font-family: 'Times New Roman';
-}
-
-#navigation a:hover {
-    background-color: yellow;
-    font-size: 18px;
-}
-
-/* 5 */
-#tit-post {
-    margin-left: 180px ;
-}
-
-.status img {
-    /* 3 */
-    float: right;
-}
-
-#container-login {
-    background-color: red;
-}
-
-.form-input input {
-    color: red;
 }
 
 #logout {
