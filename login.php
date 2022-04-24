@@ -6,22 +6,19 @@
     require 'connection.php';
     if(isset($_POST['username'])) {
         $custPhone=$_POST['username'];
-        //$custPasswd=$_POST['password'];
         $custPasswd=md5($_POST['password']);
-        if (isset($_POST['username'])) {
-            $username = mysqli_real_escape_string($conn, $_POST['username']);
-            $password = mysqli_real_escape_string($conn, $_POST['password']);
-          
-            if (empty($username)) {
-                $usernameErr = '* Username is required';
-            }
-            if (empty($password)) {
-                $passwordErr = '* Password is required';
-            }
-        } else {
+
+        $username = mysqli_real_escape_string($conn, $_POST['username']);
+        $password = mysqli_real_escape_string($conn, $_POST['password']);
+        
+        if (empty($username)) {
+            $usernameErr = '* Username is required';
+        }
+        if (empty($password)) {
+            $passwordErr = '* Password is required';
+        }
         $sql="select * from accounts where accPhone='".$custPhone."'AND accPasswd='".$custPasswd."' limit 1";
         $result = $conn->query($sql);
-
         if(mysqli_num_rows($result) == 1 ) {
             $row = $result->fetch_assoc();
             $_SESSION['user_login'] = $custPhone;
@@ -33,7 +30,6 @@
                 echo "you are employee";
                 exit();
             } 
-            }
         }
     }
 ?>

@@ -11,9 +11,19 @@ body{
 }
 
 .container-login h1 {
-    color: 	rgb(135,206,250);
-    font-size: 40px;
+    /* color: 	rgb(135,206,250);
+    font-size: 40px; */
     font-style: italic;
+	font-size:50px;
+    color:#61DBFB;
+    animation :animate 4s infinite linear;
+}
+
+@keyframes animate {
+    0%   {color: red;}
+    25%  {color: yellow;}
+    50%  {color: blue;}
+    100% {color: green;} 
 }
 
 table {
@@ -68,4 +78,3 @@ input[type="text"],input[type="password"]{
 .error {
 	color: red;
 }
-
