@@ -13,10 +13,10 @@
                 <ion-icon name="car-sport-outline"></ion-icon>
             </div>
             <ul id="main-menu">
-                <li class="item"><a href="../RentCar/main.php">Home</li>
-                <li class="item"><a href="../RentCar/main.php">Product</li>
-                <li class="item"><a href="../RentCar/main.php">Contact</li>
-                <li class="item"><a href="../RentCar/main.php">About Us</li>
+                <li class="item"><a href="../RentCar/main.php">Home</a></li>
+                <li class="item"><a href="../RentCar/main.php">Product</a></li>
+                <li class="item"><a href="../RentCar/main.php">Contact</a></li>
+                <li class="item"><a href="../RentCar/main.php">About Us</a></li>
             </ul>
             <div class="usernameA-test">
 				<?php
@@ -24,8 +24,6 @@
 						echo "Hello, " . $_SESSION['user_login'];
 				?>
 			</div>
-
-
 			<div class="logout-test">
 				<?php
                     if(!isset($_SESSION['user_login']))

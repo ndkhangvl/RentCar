@@ -45,6 +45,12 @@ header .usernameA-test {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    text-decoration: none;
+    font-size: 20px;
+    color:#61DBFB;
+    font-style: italic;
+    font-family: 'Poppins',sans-serif;
 }
 
 header .logout-test {
