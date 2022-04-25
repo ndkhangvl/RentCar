@@ -7,6 +7,22 @@ div {
     display: block;
 }
 
+.filter-row {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.filter {
+    margin-left: 35px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.btn-filter {
+    width: 70px;
+    height: 30px;
+}
+
 a {
     text-decoration: none;
     font-size: 20px;

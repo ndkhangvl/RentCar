@@ -6,7 +6,7 @@
 </head>
 <body>
         <form action="" method="GET">
-                <div class="row">
+                <div class="filter-row">
                     <div class="filter">
                             <label for="">Start Price</label>
                                 <input type="text" name="start_price" value="<?php if(isset($_GET['start_price'])){echo $_GET['start_price']; }else{echo "";} ?>" class="form-control">
@@ -16,18 +16,17 @@
                                 <input type="text" name="end_price" value="<?php if(isset($_GET['end_price'])){echo $_GET['end_price']; }else{echo "";} ?>" class="form-control">
                         </div>
                         <div class="filter">
-                                <button type="submit" class="btn btn-primary px-4">Filter</button>
+                                <button type="submit" class="btn-filter">Filter</button>
                         </div>
                 </div>
         </form>
 <?php  
         require 'connection.php';
-            if(isset($_GET['start_price']) && isset($_GET['end_price']))
+            if(!empty($_GET['start_price']) && !empty($_GET['end_price']))
                 {
                     $startprice = $_GET['start_price'];
                     $endprice = $_GET['end_price'];
-                    $query = "SELECT * FROM car c JOIN carType ct WHERE c.typeid=ct.typeid AND price BETWEEN $startprice AND $endprice 
-                    ORDER BY c.typeid asc";
+                    $query = "SELECT * FROM car c JOIN carType ct WHERE c.typeid=ct.typeid AND ct.price BETWEEN $startprice AND $endprice";
                 } else {
                     $query = "SELECT * FROM car c JOIN carType ct WHERE c.typeid=ct.typeid";
                 }
@@ -42,6 +41,6 @@
 						<a class=\"detail\" href=\"car.php?name=$row[carNumPlate]\">Xem chi tiết</a>
 					</div>";
                    }
-                                ?>
+?>
 </body>
 </html>
