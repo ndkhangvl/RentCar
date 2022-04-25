@@ -10,6 +10,7 @@
 </head>
 <body>
 <?php include('header.php') ?>
+<?php include('filter.php') ?>
 	<div id="container">
 		<div id="car-list">
 			<?php
