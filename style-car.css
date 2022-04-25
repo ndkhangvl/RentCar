@@ -1,0 +1,18 @@
+
+#frame {
+    width:100%;
+    padding:20px;
+}
+#fr-left {
+    width:50%;
+    padding:10px;
+}
+#fr-right{
+    width:50%;
+    padding:10px;
+    vertical-align: top;
+}
+.carImg {
+    width:100%;
+    height:100%;
+}

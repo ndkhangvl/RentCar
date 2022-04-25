@@ -22,14 +22,17 @@
         if(mysqli_num_rows($result) == 1 ) {
             $row = $result->fetch_assoc();
             $_SESSION['user_login'] = $custPhone;
-            if($row['accType'] == 2) {
+            $_SESSION['user_type'] = $row['accType'];
+            /*if($row['accType'] == 2) {
                 header("Location: ./main.php");
                 exit();
             }
             else if($row['accType'] == 1) {
                 echo "you are employee";
                 exit();
-            } 
+            }*/
+            header("Location: ./main.php");
+            exit();
         }
     }
 ?>
