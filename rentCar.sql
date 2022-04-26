@@ -159,7 +159,7 @@ CREATE TABLE `cartype` (
 
 LOCK TABLES `cartype` WRITE;
 /*!40000 ALTER TABLE `cartype` DISABLE KEYS */;
-INSERT INTO `cartype` VALUES (1,'Mini',4,200000),(2,'Sedan',4,250000),(3,'Hatchback',4,270000),(4,'Xe 7 chỗ',7,400000);
+INSERT INTO `cartype` VALUES (1,'Mini',4,600000),(2,'Sedan',4,750000),(3,'Hatchback',4,800000),(4,'Xe 7 chỗ',7,1500000);
 /*!40000 ALTER TABLE `cartype` ENABLE KEYS */;
 UNLOCK TABLES;
 
