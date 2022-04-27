@@ -1,0 +1,42 @@
+body{
+	margin: 0 auto;
+}
+
+.container-login{
+	width: 700px;
+	height: auto;
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+.container-login h1 {
+    font-style: italic;
+	font-size:30px;
+    color:#61DBFB;
+    
+}
+.user-info {
+    width:100%;
+    text-align: left;
+    font-size:20px;
+}
+.left {
+    
+    font-weight: bold;
+    font-size:18px;
+}
+.right {
+    
+}
+.center {
+    text-align: center;
+}
+input[type="password"]{
+	height: 30px;
+	width: 250px;
+	font-size: 18px;
+	margin-bottom: 5px;
+	background-color: #fff;
+	padding-left: 40px;
+}
