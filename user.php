@@ -1,4 +1,40 @@
 <?php session_start(); ?>
+<?php 
+    $oldErr = $newErr = $confirmErr = $success= "";
+    $oldPass = $newPass = $Confirm = "";
+    if(isset($_POST['oldpass']) && isset($_POST['newpass']) && isset($_POST['confirm'])){
+        require "connection.php";
+        $oldPass = $accoldpass = $_POST['oldpass'];
+        $newPass = $accnewpass = $_POST['newpass'];
+        $Confirm = $accconfirm = $_POST['confirm'];
+        if (empty($oldPass)) {
+            $oldErr = '* Old pass is required';
+        } else {
+            $oldPass = md5($oldPass);
+        }
+        if (empty($newPass)) {
+            $newErr = "* New pass is required";
+        } else {
+            $newPass = md5($newPass);
+        }
+        if (empty($Confirm)) {
+            $confirmErr = '* Confirm is required';
+        } else if ($accnewpass != $accconfirm){
+            $confirmErr ='* Confirm is not same new password';
+        }else $Confirm = md5($Confirm);
+
+        if ($oldPass != "" && $newPass != "" && $Confirm != "" && $Confirm == $newPass){
+            $sql = "select * from accounts where accPhone='".$_SESSION['user_login']."'AND accPasswd='".$oldPass."' limit 1";
+            $result = $conn->query($sql) or die("Query failed: ".$conn->error);
+            if(mysqli_num_rows($result) == 1 ) {
+                $sql2 = "update accounts set accPasswd='".$newPass."' where accPhone='".$_SESSION['user_login']."'";
+                $result2 = $conn->query($sql2) or die("Query failed: ".$conn->error);
+                $success = 'Change password successful!';
+            }else $oldErr = '* Old password is not valid';
+            
+        }
+    }
+    ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,32 +46,9 @@
 </head>
 <body>
     <?php include "header.php" ?>
-	<div class="container-login">
+	<div class="container-user">
         
         <?php
-                $oldErr = $newErr = $confirmErr = "";
-                $oldPass = $newPass = $Confirm = "";
-                if(isset($_POST['oldpass']) && isset($_POST['newpass']) && isset($_POST['confirm'])){
-                    require "connection.php";
-                    $oldPass = $_POST['oldpass'];
-                    $newPass = $_POST['newpass'];
-                    $Confirm = $_POST['confirm'];
-                    if (empty($oldPass)) {
-                        $oldErr = '* Old pass is required';
-                    } else {
-                        $oldPass = md5($oldPass);
-                    }
-                    if (empty($newPass)) {
-                        $newErr = "* New pass is required";
-                    } else {
-                        $newPass = md5($newPass);
-                    }
-                    if (empty($Confirm)) {
-                        $comfirmErr = '* Confirm is required';
-                    } else {
-                        $Confirm = md5($Confirm);
-                    }
-                }
             if(isset($_SESSION['user_login'])){
                 require "connection.php";
                 $sql = "select * from accounts where accPhone='".$_SESSION['user_login']."'";
@@ -48,7 +61,7 @@
                     echo "<h1>Thông tin khách hàng</h1><br/>";
                 }
                 echo "<div>
-                    <table class=\"user-info\">
+                    <table class=\"user-info-1\">
                         <tr>
                             <td class=\"left\">Họ tên: </td>
                             <td class=\"right\">$row[accName]</td>
@@ -65,27 +78,28 @@
                             <td class=\"center\" colspan=\"2\"><br/><hr><br/></td>
                         </tr>
                     </table>
-                    <table class=\"user-info\">
+                    <table class=\"user-info-2\">
                         <form method=\"POST\" action=\"#\">
                             <tr>
-                                <td>Mật khẩu cũ: </td>
-                                <td><input type=\"password\" id=\"oldpass\" name=\"oldpass\" placeholder=\"\"/></td>
-                                <td><span class=\"error\"><?php echo $oldErr; ?></span></td>
+                                <td class=\"left\">Mật khẩu cũ: </td>
+                                <td class=\"center\"><input type=\"password\" id=\"oldpass\" name=\"oldpass\" placeholder=\"\"/></td>
+                                <td class=\"right\"><span class=\"error\">$oldErr</span></td>
                             </tr>
                             <tr>
-                                <td>Mật khẩu mới: </td>
-                                <td><input type=\"password\" id=\"newpass\" name=\"newpass\" placeholder=\"\"/></td>
-                                <td><span class=\"error\"><?php echo $newErr; ?></span></td>
+                                <td class=\"left\">Mật khẩu mới: </td>
+                                <td class=\"center\"><input type=\"password\" id=\"newpass\" name=\"newpass\" placeholder=\"\"/></td>
+                                <td class=\"right\"><span class=\"error\">$newErr</span></td>
                             </tr>
                             <tr>
-                                <td>Xác nhận mật khẩu mới: </td>
-                                <td><input type=\"password\" id=\"confirm\" name=\"confirm\" placeholder=\"\"/></td>
-                                <td><span class=\"error\"><?php echo $confirmErr; ?></span></td>
+                                <td class=\"left\">Xác nhận mật khẩu mới: </td>
+                                <td class=\"center\"><input type=\"password\" id=\"confirm\" name=\"confirm\" placeholder=\"\"/></td>
+                                <td class=\"right\"><span class=\"error\">$confirmErr</span></td>
                             </tr>
                             <tr>
                                 <td class=\"center\" colspan=\"3\"><input type=\"submit\" value=\"Đổi mật khẩu\" class=\"btn-change\"/></td>
                             </tr>
                             </form>
+                            <tr><td class=\"center\" colspan=\"3\"><span class=\"success\">$success</span></td></tr>
                     </table>
                 </div>";
             } else echo "<h1>Bạn chưa đăng nhập</h1>";

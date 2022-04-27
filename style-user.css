@@ -2,8 +2,8 @@ body{
 	margin: 0 auto;
 }
 
-.container-login{
-	width: 700px;
+.container-user{
+	width: 900px;
 	height: auto;
 	text-align: center;
 	margin: 0 auto;
@@ -16,18 +16,18 @@ body{
     color:#61DBFB;
     
 }
-.user-info {
+.user-info-1,.user-info-2 {
     width:100%;
     text-align: left;
     font-size:20px;
 }
-.left {
-    
+.user-info-1 .left {
+    width:50%;
     font-weight: bold;
     font-size:18px;
 }
-.right {
-    
+.user-info-1 .right {
+    width:50%;
 }
 .center {
     text-align: center;
@@ -39,4 +39,22 @@ input[type="password"]{
 	margin-bottom: 5px;
 	background-color: #fff;
 	padding-left: 40px;
+}
+.user-info-2 .left {
+    width:30%;
+    font-size:20px;
+}
+.user-info-2 .center {
+    width:35%;
+}
+.user-info-2 .right {
+    width:35%;
+}
+.error {
+    color: red;
+    font-size:15px;
+}
+.success {
+    color:green;
+    font-size:20px;
 }
