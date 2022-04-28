@@ -128,7 +128,7 @@
                     </tr>
                 </table>
 			</div>
-			<input type="submit" onclick="validate()" type="submit" value="Register" class="btn-login"/>
+			<input type="submit" value="Register" class="btn-login"/>
 		</form>
 	</div>
     <!-- <script src="check.js"></script> -->

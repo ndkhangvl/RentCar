@@ -21,10 +21,12 @@ body{
     text-align: left;
     font-size:20px;
 }
+
 .user-info-1 .left {
     width:50%;
     font-weight: bold;
     font-size:18px;
+    padding-left:300px;
 }
 .user-info-1 .right {
     width:50%;
@@ -43,6 +45,7 @@ input[type="password"]{
 .user-info-2 .left {
     width:30%;
     font-size:20px;
+    padding-left:30px;
 }
 .user-info-2 .center {
     width:35%;
