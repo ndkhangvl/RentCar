@@ -38,7 +38,7 @@
 						<b>SỐ CHỖ 	: </b>$row[seatNum]<br>
 						<b>BIỂN SỐ	: </b>$row[carNumPlate]<br>
 						<b>GIÁ THUÊ	: </b>$row[price] VNĐ/ngày<br>
-						<a class=\"detail\" href=\"car.php?name=$row[carNumPlate]\">Xem chi tiết</a>
+						<a class=\"detail\" href=\"car-test.php?name=$row[carNumPlate]\">Xem chi tiết</a>
 					</div>";
                    }
 ?>
