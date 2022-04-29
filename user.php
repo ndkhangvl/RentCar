@@ -54,6 +54,11 @@
                 $sql = "select * from accounts where accPhone='".$_SESSION['user_login']."'";
                 $result = $conn->query($sql);
                 $row=$result->fetch_assoc();
+
+                $sqlhistory = "select ROW_NUMBER() OVER (ORDER BY dateid) AS STT,carNumPlate,dateFrom,dateTo
+                    from booking bk join car c on bk.carid=c.carid where custid=$_SESSION[user_id]";
+                $resulthistory = $conn->query($sqlhistory);
+
                 if($_SESSION['user_type'] == 1) {
                     echo "<h1>Thông tin nhân viên</h1><br/>";
                 }
@@ -100,8 +105,31 @@
                             </tr>
                             </form>
                             <tr><td class=\"center\" colspan=\"3\"><span class=\"success\">$success</span></td></tr>
-                    </table>
-                </div>";
+                    </table>";
+                    if($_SESSION['user_type'] == 2) {
+                        echo "<br/><hr/><br/>
+                        <h1>Lịch sử thuê xe</h1>
+                        <table class=\"user-info-3\">
+                        <tr>
+                            <th>STT</th>
+                            <th>Xe</th>
+                            <th>Ngày Thuê<br/>(YYYY-MM-DD)</th>
+                            <th>Ngày Trả<br/>(YYYY-MM-DD)</th>
+                        </tr>";
+                        while ($rowhistory = $resulthistory->fetch_assoc()){
+                            echo "<tr>
+                                <td>$rowhistory[STT]</td>
+                                <td>$rowhistory[carNumPlate]</td>
+                                <td>$rowhistory[dateFrom]</td>
+                                <td>$rowhistory[dateTo]</td>
+                            </tr>";
+                        }
+                        echo "</table><br/>";
+                    }
+
+                    
+
+                echo "</div>";
             } else echo "<h1>Bạn chưa đăng nhập</h1>";
             
             

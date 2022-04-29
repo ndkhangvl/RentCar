@@ -16,7 +16,7 @@ body{
     color:#61DBFB;
     
 }
-.user-info-1,.user-info-2 {
+.user-info-1,.user-info-2,.user-info-3 {
     width:100%;
     text-align: left;
     font-size:20px;
@@ -60,4 +60,13 @@ input[type="password"]{
 .success {
     color:green;
     font-size:20px;
+}
+
+.user-info-3 {
+    border-collapse:collapse;
+}
+
+.user-info-3 th,.user-info-3 td{
+    border:2px solid black;
+    text-align:center;
 }
