@@ -22,6 +22,7 @@
         if(mysqli_num_rows($result) == 1 ) {
             $row = $result->fetch_assoc();
             $_SESSION['user_login'] = $row['accPhone'];
+            $_SESSION['user_id'] = $row['accID'];
             $_SESSION['user_type'] = $row['accType'];
             /*if($row['accType'] == 2) {
                 header("Location: ./main.php");

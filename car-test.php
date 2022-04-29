@@ -3,43 +3,72 @@
 ?>
 <?php
     $info = "";
-    $chkfrom = $chkto = 0;
-    $posfrom = $posto = 0;
+    $numdate = "";
+    $arrDate = [];
+    $chk = 0;
     if(isset($_POST['from_date']) && isset($_POST['to_date'])){
         require "connection.php";
         if (empty($_POST['from_date']) || empty($_POST['to_date'])) {
             $info = '*Please choose both From and To date';
         } else {
-            $sql1 = $sql2 = "select * from booking b join car c on b.carid=c.carid where c.carNumPlate = '$_REQUEST[name]'";
-            $resultsql1 = $conn->query($sql1) or die("Data retrieval failed" . $conn->connect_error);
-            
-            while ($rowsql1 = $resultsql1->fetch_assoc()){
-                $sqlfrom = "select '$_POST[from_date]' between '$rowsql1[dateFrom]' and '$rowsql1[dateTo]' as tontai";
-                $resultfrom = $conn->query($sqlfrom) or die("Data retrieval failed" . $conn->connect_error);
-                $rowfrom = $resultfrom->fetch_assoc();
-                if ($rowfrom['tontai'] == 1) {
-                    $chkfrom = 1;
-                    $posfrom = $rowsql1['bookid'];
-                    break;
+            //// Tạo danh sách các ngày từ ngày thuê đến ngày trả
+            // Ngày bắt đầu
+            $datefrom = $_POST['from_date'];
+            $datefrom = strtotime($datefrom); // Chuyển sang dạng UNIX timestamp
+            // Ngày kết thúc
+            $dateto = $_POST['to_date'];
+            $dateto = strtotime($dateto); // Chuyển sang dạng UNIX timestamp
+            // Dùng vòng lặp để xuất ra danh sách các ngày giữa 2 ngày
+            for ($i=$datefrom; $i<=$dateto; $i+=86400) {
+                if ($i == $datefrom) $cnt = 0;
+                else $cnt++;
+                $arrDate[$cnt] = date("Y-m-d", $i);
+            }
+            $numdate = count($arrDate);
+
+            //// duyệt từng phần tử trong mảng các ngày
+            for($i=0;$i<$numdate;$i++){
+                //nếu có bất kì ngày nào trong mảng có tồn tại trong danh sách thông tin các lần thuê thì báo lỗi
+                //echo "Ngay thu ".$i.": ".$arrDate[$i]."<br/>";
+                //$cnt = 0;
+                //// lấy danh sách thông tin các lần thuê của xe <>
+                $sqlbooking = "select * from booking b join car c on b.carid=c.carid where c.carNumPlate = '$_REQUEST[name]'";
+                $resultbooking = $conn->query($sqlbooking) or die("Data retrieval failed" . $conn->connect_error);
+                while($rowbooking = $resultbooking->fetch_assoc()){
+                    //$cnt++;
+                    //echo "Lan thu: ".$cnt."<br/>";
+                    $sqlchk = "select '$arrDate[$i]' between '$rowbooking[dateFrom]' and '$rowbooking[dateTo]' as tontai";
+                    $resultchk = $conn->query($sqlchk) or die("Data retrieval failed" . $conn->connect_error);
+                    $rowchk = $resultchk->fetch_assoc();
+                    if ($rowchk['tontai'] == 1){
+                        $chk = 1;
+                        $i = $numdate;
+                        break;
+                    }
                 }
             }
-            $resultsql2 = $conn->query($sql2) or die("Data retrieval failed" . $conn->connect_error);
-            while ($rowsql2 = $resultsql2->fetch_assoc()){
-                $sqlto = "select '$_POST[to_date]' between '$rowsql2[dateFrom]' and '$rowsql2[dateTo]' as tontai";
-                $resultto = $conn->query($sqlto) or die("Data retrieval failed" . $conn->connect_error);
-                $rowto = $resultto->fetch_assoc();
-                if ($rowto['tontai'] == 1) {
-                    $chkto = 1;
-                    $posto = $rowsql2['bookid'];
-                    break;
-                }
+            if ($numdate == 0){
+                $info ="Ngày không hợp lệ";
             }
-            /*echo $chkfrom. "    ".$chkto."<br/>";
-            echo $posfrom. "    ".$posto;*/
-            if (($posfrom == $posto || $posfrom!=0 || $posto!=0) && ($chkfrom == 1 || $chkto == 1)){
-                $info = "Xe đã được thuê thời gian này";
-            } else if ($chkfrom == 0 && $chkto == 0 && $posfrom == 0 && $posto ==0){
-                $info ="Thue thanh cong";
+            else if ($chk == 1){
+                $info = "Thời gian này xe đã được thuê";
+            }else {
+                //Truy xuất id của car từ carnumplate
+                $carid = "";
+                $sqlid = "SELECT * FROM car c JOIN carType ct ON c.typeid=ct.typeid 
+                    WHERE c.carNumPlate='$_REQUEST[name]'";
+                $resultid = $conn->query($sqlid)
+                    or die("Data retrieval failed" . $conn->connect_error);
+                $rowid = $resultid->fetch_assoc();
+                $carid = $rowid['carID'];
+
+                //CHèn 1 lần thuê mới
+                $sqlins = "INSERT INTO booking(dateFrom, custID, carID, dateTo) VALUES
+                ('$_POST[from_date]', $_SESSION[user_id], $carid, '$_POST[to_date]')";
+                $resultins = $conn->query($sqlins) or die("Data retrieval failed" . $conn->connect_error);
+                
+                $info = "Thuê thành công";
+                
             }
         }
     }
