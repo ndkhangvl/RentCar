@@ -125,8 +125,8 @@
                                     echo "<table id=\"tbl-renttime\">
                                         <tr>
                                             <th>STT</th>
-                                            <th>Ngày Thuê<br/>(YYYY/MM/DD)</th>
-                                            <th>Ngày Trả<br/>(YYYY/MM/DD)</th>
+                                            <th>Ngày Thuê<br/>(YYYY-MM-DD)</th>
+                                            <th>Ngày Trả<br/>(YYYY-MM-DD)</th>
                                         </tr>";
                                     while($row2 = $result2->fetch_assoc()){
                                         echo "<tr>
