@@ -79,7 +79,7 @@
     <meta charset="UTF-8">
     <title>Thông Tin Xe</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="style-car-test.css">
+    <link rel="stylesheet" type="text/css" href="style-car.css">
 </head>
 <body>
     <?php include('header.php') ?>
