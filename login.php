@@ -66,8 +66,17 @@
                 </table>
 			</div>
             <span id="error"></span>
-			<input type="submit" type="submit" value="LOGIN" class="btn-login"/>
+            <div class="form">
+                <table>
+                    <tr>
+                        <td><input type="submit"  value="LOGIN" class="btn-login"/></td>
+                    </tr>
+                </table>
+			</div>
 		</form>
+        <div>
+            <a href="./register.php"><input type="submit" class="btn-login"/></a>
+        </div>
 	</div>
 </body>
 </html>

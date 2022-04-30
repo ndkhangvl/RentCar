@@ -17,25 +17,6 @@
     </style>
 </head>
 <body>
-        <form action="" method="GET">
-                <div class="filter-row">
-                    <div class="filter">
-                            <label for="">Start Price</label>
-                                <input type="text" name="start_price" value="<?php if(isset($_GET['start_price'])){
-                                                                                $startprice = $_GET['start_price'];
-                                                                                $_SESSION['start_price']=$startprice; }else{echo "";} ?>" class="form-control">
-                    </div>
-                        <div class="filter">
-                            <label for="">End Price</label>
-                                <input type="text" name="end_price" value="<?php if(isset($_GET['end_price'])){
-                                                                                 $endprice = $_GET['end_price'];
-                                                                                $_SESSION['end_price']=$endprice; }else{echo "";} ?>" class="form-control">
-                        </div>
-                        <div class="filter">
-                                <button type="submit" class="btn-filter">Filter</button>
-                        </div>
-                </div>
-        </form>
         <div id="load_data"></div>
         <div id="load_data_message"></div>
 
@@ -47,7 +28,7 @@
  function load_data(limit, start)
         {
             $.ajax({
-            url:"fetch.php",
+            url:"fetch-unlogin.php",
             method:"GET",
             data:{limit:limit, start:start},
             cache:false,

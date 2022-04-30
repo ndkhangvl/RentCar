@@ -34,6 +34,10 @@ table {
 	text-align: left;
 }
 
+.form {
+	text-align: center;
+}
+
 .form-input img{
 	width: 20px;
 	height: 20px;

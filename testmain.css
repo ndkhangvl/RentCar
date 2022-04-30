@@ -8,7 +8,6 @@ body {
     height: 100vh;
     font-family: 'Poppins',sans-serif;
 }
-
 header {
     width: 100%;
     height: 100px;
@@ -37,43 +36,33 @@ header #main-menu {
 header #main-menu .item {
     margin:0px 30px;
 }
-
-header .usernameA-test {
-    margin-left: 350px;
-    width: 200px;
+header .login-test {
+    /* width: 200px; */
     height: 40px;
+    /* background:#61DBFB; */
+    color:white;
     display: flex;
     justify-content: center;
     align-items: center;
+}
 
-    text-decoration: none;
-    font-size: 20px;
-    color:#61DBFB;
-    font-style: italic;
-    font-family: 'Poppins',sans-serif;
+header .usernameA-test {
+    margin-left: 250px;
+    width: 200px;
+    height: 40px;
+    background:#61DBFB;
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 header .logout-test {
     width: 200px;
     height: 40px;
     background:#61DBFB;
+    color:white;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.link-a {
-    text-decoration: none;
-    font-size: 20px;
-    color:#61DBFB;
-    font-style: italic;
-    font-family: 'Poppins',sans-serif;
-}
-
-.logout {
-    color: white;
-    font-style: italic;
-    font-family: 'Poppins',sans-serif;
-    text-decoration: none;
-    font-size: 20px;
 }

@@ -1,4 +1,4 @@
-
+<!-- if else chua duoc :)) -->
 <?php
     require 'connection.php';
     $usernameErr = $passwordErr = $repasswordErr = $nameErr = $emailErr = "";
