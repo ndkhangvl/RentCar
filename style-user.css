@@ -70,3 +70,8 @@ input[type="password"]{
     border:2px solid black;
     text-align:center;
 }
+
+.seecar {
+    color:black;
+    font-style: normal;
+}

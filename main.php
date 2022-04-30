@@ -10,10 +10,18 @@
 </head>
 <body>
 <?php include('header.php') ?>
+<?php
+	if(isset($_SESSION['user_type']) && $_SESSION['user_type'] == 1){
+		echo "<div class=\"function\">
+			<a class=\"addcar\" href=\"addcar.php\">Thêm Xe</a>
+		</div>";
+	}
+?>
 <?php include('filter.php') ?>
 	<div id="container">
 		<div id="car-list">
 			<?php
+				
 				/*require 'connection.php';
 				$sw = "";
 				if(isset($_GET['searchword'])){

@@ -119,7 +119,7 @@
                         while ($rowhistory = $resulthistory->fetch_assoc()){
                             echo "<tr>
                                 <td>$rowhistory[STT]</td>
-                                <td>$rowhistory[carNumPlate]</td>
+                                <td><a class=\"seecar\" href=\"car-test.php?name=$rowhistory[carNumPlate]\">$rowhistory[carNumPlate]</a></td>
                                 <td>$rowhistory[dateFrom]</td>
                                 <td>$rowhistory[dateTo]</td>
                             </tr>";
