@@ -33,5 +33,6 @@
 			?>
 		</div>
 		<p class="spacer"> </p>
+	<?php include('footer.php') ?>
 </body>
 </html>

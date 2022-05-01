@@ -23,5 +23,5 @@ if(isset($_GET["limit"], $_GET["start"]))
                             </div>";
             }
         }
-    error_reporting(E_ALL);
+    //error_reporting(E_ALL);
 ?>

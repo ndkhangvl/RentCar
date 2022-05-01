@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="filter.css">
+    <script src="./onTop.js"></script>
     <style>
         #load_data_message {
             text-align: center;
@@ -17,6 +18,7 @@
     </style>
 </head>
 <body>
+    <button onclick="topFunction()" id="myBtn-top" title="Go to top">Top</button>
         <form action="" method="GET">
                 <div class="filter-row">
                     <div class="filter">
@@ -38,7 +40,6 @@
         </form>
         <div id="load_data"></div>
         <div id="load_data_message"></div>
-
 <script>
     $(document).ready(function() {
         var limit = 3;
