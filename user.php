@@ -34,7 +34,7 @@
             
         }
     }
-    ?>
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +55,7 @@
                 $result = $conn->query($sql);
                 $row=$result->fetch_assoc();
 
-                $sqlhistory = "select ROW_NUMBER() OVER (ORDER BY dateid) AS STT,carNumPlate,dateFrom,dateTo
+                $sqlhistory = "select dateid, ROW_NUMBER() OVER (ORDER BY dateid) AS STT,carNumPlate,dateFrom,dateTo
                     from booking bk join car c on bk.carid=c.carid where custid=$_SESSION[user_id]";
                 $resulthistory = $conn->query($sqlhistory);
 
@@ -123,7 +123,7 @@
                                 <td>$rowhistory[dateFrom]</td>
                                 <td>$rowhistory[dateTo]</td>";
                                 if($rowhistory['dateFrom'] > (date("Y-m-d"))){
-                                    echo "<td><input type=\"button\" value=\"Xóa\"></td>";
+                                    echo "<td><a href=\"delbooking.php?id=$rowhistory[dateid]\"><input type=\"button\" value=\"Delete\"/></a></td>";
                                 }
                             echo "</tr>";
                         }
