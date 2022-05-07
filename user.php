@@ -121,8 +121,11 @@
                                 <td>$rowhistory[STT]</td>
                                 <td><a class=\"seecar\" href=\"car.php?name=$rowhistory[carNumPlate]\">$rowhistory[carNumPlate]</a></td>
                                 <td>$rowhistory[dateFrom]</td>
-                                <td>$rowhistory[dateTo]</td>
-                            </tr>";
+                                <td>$rowhistory[dateTo]</td>";
+                                if($rowhistory['dateFrom'] > (date("Y-m-d"))){
+                                    echo "<td><input type=\"button\" value=\"Xóa\"></td>";
+                                }
+                            echo "</tr>";
                         }
                         echo "</table><br/>";
                     }
