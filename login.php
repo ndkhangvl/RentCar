@@ -75,7 +75,7 @@
 			</div>
 		</form>
         <div>
-            <a href="./register.php"><input type="submit" class="btn-login"/></a>
+            <a href="./register.php"><input type="submit" value = "REGISTER?" class="btn-login"/></a>
         </div>
 	</div>
 </body>
