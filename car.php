@@ -26,6 +26,7 @@
             }
             $numdate = count($arrDate);
 
+            
             //// duyệt từng phần tử trong mảng các ngày
             for($i=0;$i<$numdate;$i++){
                 //nếu có bất kì ngày nào trong mảng có tồn tại trong danh sách thông tin các lần thuê thì báo lỗi
@@ -47,8 +48,12 @@
                     }
                 }
             }
-            if ($numdate == 0){
-                $info ="Ngày không hợp lệ";
+            $today = strtotime(date("Y-m-d"));
+            if ($datefrom < $today){
+                $info ="Không hợp lệ: Ngày thuê nhỏ hơn ngày hiện tại";
+            }
+            else if ($numdate == 0){
+                $info ="Không hợp lệ: Ngày thuê lớn hơn ngày trả";
             }
             else if ($chk == 1){
                 $info = "Thời gian này xe đã được thuê";
