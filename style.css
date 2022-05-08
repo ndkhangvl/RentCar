@@ -55,21 +55,6 @@ a {
     100% {color: green;} 
 }
 
-#top-title-right {
-    text-align: center;
-    display: block;
-    float: left;
-    margin-top: 15px;
-    margin-left: 15px;
-}
-
-#search-title {
-    margin-top: 15px;
-    margin-left: 20px;
-    float: left;
-    display: block;
-}
-
 #login {
     float: left;
     margin-top: 15px;
