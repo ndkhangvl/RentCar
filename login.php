@@ -45,6 +45,7 @@
 	<link rel="stylesheet" type="text/css" href="style-login.css">
 </head>
 <body>
+    <a href="./main.php"><input type="button" value="Home" class="btn-login"/></a>
 	<div class="container-login">
     <h1>Rent Car KD</h1>
 	<!-- <img src="image/login.png"/> -->
@@ -75,7 +76,7 @@
 			</div>
 		</form>
         <div>
-            <a href="./register.php"><input type="submit" class="btn-login"/></a>
+            <a href="./register.php"><input type="submit" value = "REGISTER?" class="btn-login"/></a>
         </div>
 	</div>
 </body>
