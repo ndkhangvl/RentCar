@@ -79,6 +79,7 @@ a {
 #car-list {
     margin:10px;
 }
+
 .car-info{
     border: solid grey 2px;
     padding:10px;
@@ -87,13 +88,60 @@ a {
     overflow:auto;
     line-height: 1.5;
 }
+
+#load_data { 
+    display: grid;
+    column-gap: 50px;
+    row-gap: 50px;
+    grid-template-columns: auto auto auto;
+    background-color: #ffffff;
+    padding: 10px;
+    justify-content: center;
+}
+
+.car-info-card { 
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid black;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.car-info-card a {
+    background-color: rgb(0, 0, 0);
+    padding: 15px 20px;
+    display: block;
+    text-align: center;
+    margin: 20px 50px;
+}
+
+.carImg-card {
+    width:300px;
+    height:250px;
+    /* float:left;
+    clear:left; */
+    margin: 0px auto 15px auto;
+    background-size: cover;
+    overflow:hidden;
+    border-radius: 15px 15px 0 0;
+}
+
+.car-info-card:hover {
+    background-color: #61DBFB;
+    color: white;
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+
 .carImg {
     width:350px;
     height:250px;
     float:left;
     clear:left;
-    margin-right:15px;
 }
+
 .function {
     width:auto;
     padding:25px;

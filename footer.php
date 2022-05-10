@@ -1,39 +1,23 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="header.css">
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-    <div id="web">
-        <header>
-            <div class="logo">
-                <ion-icon name="car-sport-outline"></ion-icon>
-            </div>
-            <ul id="main-menu">
-                <li class="item"><a class="link-a" href="./main.php">Home</a></li>
-                <li class="item"><a class="link-a" href="./main.php">Product</a></li>
-                <li class="item"><a class="link-a" href="./main.php">Contact</a></li>
-                <li class="item"><a class="link-a" href="./aboutus.php">About Us</a></li>
+    <div id="container-footer">
+        <div class="content-footer">
+            <h5>Performed by Ho Xuan Phuong Dong & Nguyen Duy Khang</h5>
+            <ul class="social-footer">
+                <li class="social-li-footer"><a href="https://www.facebook.com/hxpdong.01" class="fa fa-facebook"></a></li>
+                <li class="social-li-footer"><a href="https://www.facebook.com/hxpdong.01" class="fa fa-google"></a></li>
+                <li class="social-li-footer"><a href="https://www.facebook.com/hxpdong.01" class="fa fa-google"></a></li>
             </ul>
-            <div class="usernameA-test">
-				<?php
-					if(isset($_SESSION['user_login']) && $_SESSION['user_login'])
-						echo "<a class=\"link-a\" href=\"./user.php\">Hello, " .$_SESSION['user_login']."</a>";
-				?>
-			</div>
-			<div class="logout-test">
-				<?php
-                    if(!isset($_SESSION['user_login']))
-                    echo "<a class=\"logout\" href=\"login.php\">Đăng Nhập</a>";
-
-					if(isset($_SESSION['user_login']) && $_SESSION['user_login'])
-					echo "<a class=\"logout\" href=\"logout.php\">Log Out</a>";
-				?>
-			</div>
-        </header>
+            <hr></hr>
+            <p>© 2022 Copyright: hxpdong & ndkhang</p>
+        </div>
     </div>
 </body>
 

@@ -23,7 +23,7 @@ div {
 #car-list {
     margin:10px;
 }
-.car-info{
+/* .car-info{
     border: solid grey 2px;
     padding:10px;
     margin:5px;
@@ -37,7 +37,7 @@ div {
     float:left;
     clear:left;
     margin-right:15px;
-}
+} */
 
 .detail {
     text-decoration: none;

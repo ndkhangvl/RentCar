@@ -1,0 +1,39 @@
+#container-footer {
+    background-color: #61DBFB;
+    padding: 2rem;
+    color: #ececec;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 20px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+}
+  
+.fa:hover {
+      opacity: 0.7;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-google {
+    background: red;
+    color: white;
+}
+
+ul.social-footer li{
+    display: inline;
+    padding: 10px !important; 
+}
+
+.content-footer {
+    margin-top: 20px;
+}
+
