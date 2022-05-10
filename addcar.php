@@ -51,6 +51,7 @@
 </head>
 <body>
     <?php include('header.php') ?>
+    <a href="insertcarImgform.html">Change Image</a>
     <div class="container-addcar">
         <?php
             require "connection.php";
