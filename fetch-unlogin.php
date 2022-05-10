@@ -10,7 +10,7 @@ if(isset($_GET["limit"], $_GET["start"]))
                                 <b>TYPE     : </b>$row[typeName]<br>
                                 <b>SEATS 	: </b>$row[seatNum]<br>
                                 <b>NUMBER PLATE	: </b>$row[carNumPlate]<br>
-                                <b>PRICE	: </b>$row[price] VNĐ/ngày<br>
+                                <b>PRICE	: </b>$row[price] VND/day<br>
                                 <a class=\"detail\" href=\"car.php?name=$row[carNumPlate]\">Detail>></a>
                             </div>";
             }

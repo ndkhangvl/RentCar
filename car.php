@@ -82,7 +82,7 @@
 <html lang="vn">
 <head>
     <meta charset="UTF-8">
-    <title>Thông Tin Xe</title>
+    <title>Car Information</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="style-car.css">
 </head>
@@ -110,7 +110,7 @@
                                     <b>TYPE 	: </b>$row[typeName]<br>
                                     <b>SEATS 	: </b>$row[seatNum]<br>
                                     <b>NUMBER PLATE	: </b>$row[carNumPlate]<br>
-                                    <b>PRICE	: </b>$row[price] VND/date<br>";
+                                    <b>PRICE	: </b>$row[price] VND/day<br>";
                                     if(isset($_SESSION['user_login']) && $_SESSION['user_type'] == 2){
                                         //echo "<a class=\"rent\" href=\"\">Thuê Xe</a>";
                                         
