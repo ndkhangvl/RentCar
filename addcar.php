@@ -51,7 +51,7 @@
 </head>
 <body>
     <?php include('header.php') ?>
-    <a href="insertcarImgform.html">Change Image</a>
+    
     <div class="container-addcar">
         <?php
             require "connection.php";
@@ -60,9 +60,10 @@
             if (isset($_SESSION['user_type'])){
                 if($_SESSION['user_type'] != 1){
                     echo "<h1>You are not Staff</h1><br/>
-                    Please login with a Staff user to perform this function";
+                    Please login with Staff account to perform this function";
                 }
                 else {
+                    
                     echo "<h1>Add Car</h1>";
                     echo "<form method=\"POST\" action=\"#\" enctype=\"multipart/form-data\">";
                         echo "<table id=\"addcar-fr\">
@@ -99,8 +100,10 @@
                         </table>";
                         echo "<div class=\"notification\">$info</div>";
                     echo "</form>";
+
+                    echo "<hr><a href=\"insertcarImgform.php\">Change Image</a>";
                 }
-            }else echo "<h1>Bạn chưa đăng nhập</h1>";
+            }else echo "<h1>You are not Sign in</h1>";
         ?>
     </div>
 </body>

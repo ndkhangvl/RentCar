@@ -2,7 +2,7 @@ body{
 	margin: 0 auto;
 }
 
-.container-addcar{
+.container-addcar, .container-changeImg{
 	width: 1000px;
 	height: auto;
 	text-align: center;

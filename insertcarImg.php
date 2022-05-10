@@ -8,7 +8,7 @@
         $imgname=$_POST['carPlate'];
         $conn->query("UPDATE car SET carImg='$image' WHERE carNumPlate='$imgname'")
             or die("Cannot insert into DB: ". $conn->connect_error);
-            header("Location: ./insertcarImgform.html");
+            header("Location: ./insertcarImgform.php");
     }
     
 ?>
