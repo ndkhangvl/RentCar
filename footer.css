@@ -6,7 +6,7 @@
 
 .fa {
     padding: 20px;
-    font-size: 20px;
+    font-size: 30px;
     width: 20px;
     text-align: center;
     text-decoration: none;
@@ -26,6 +26,11 @@
 .fa-google {
     background: red;
     color: white;
+}
+
+.fa-github {
+    color: white;
+    background: gray;
 }
 
 ul.social-footer li{

@@ -11,15 +11,14 @@
             text-align: center;
             font-size: 40px;
             color: red;
-            margin: 0 auto;
-            margin-top: 200px;
-            margin-bottom: 200px;
+            margin: 2rem;
         }
     </style>
 </head>
 <body>
     <?php include('header.php') ?>
     <p class="aboutus">Ho Xuan Phuong Dong - Nguyen Duy Khang</p>
+    <p class="aboutus">Web Programming</p>
     <?php include('footer.php') ?>
 </body>
 </html>
