@@ -33,3 +33,11 @@
 #form-rent{
     text-align: center;
 }
+
+.rentcar {
+    width:70%;
+    height:30px;
+    font-size:20px;
+    background-color: rgb(70, 173, 70);
+    color:white;
+}

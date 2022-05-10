@@ -9,7 +9,7 @@
     if(isset($_POST['from_date']) && isset($_POST['to_date'])){
         require "connection.php";
         if (empty($_POST['from_date']) || empty($_POST['to_date'])) {
-            $info = '*Please choose both From and To date';
+            $info = '*Please choose both From date and To date';
         } else {
             //// Tạo danh sách các ngày từ ngày thuê đến ngày trả
             // Ngày bắt đầu
@@ -50,13 +50,13 @@
             }
             $today = strtotime(date("Y-m-d"));
             if ($datefrom < $today){
-                $info ="Không hợp lệ: Ngày thuê nhỏ hơn ngày hiện tại";
+                $info ="INVALID: From date smaller than Current date";
             }
             else if ($numdate == 0){
-                $info ="Không hợp lệ: Ngày thuê lớn hơn ngày trả";
+                $info ="INVALID: From date larger than To date";
             }
             else if ($chk == 1){
-                $info = "Thời gian này xe đã được thuê";
+                $info = "This time the car has been rented";
             }else {
                 //Truy xuất id của car từ carnumplate
                 $carid = "";
@@ -72,7 +72,7 @@
                 ('$_POST[from_date]', $_SESSION[user_id], $carid, '$_POST[to_date]')";
                 $resultins = $conn->query($sqlins) or die("Data retrieval failed" . $conn->connect_error);
                 
-                $info = "Thuê thành công";
+                $info = "Rent successful";
                 
             }
         }
@@ -107,10 +107,10 @@
                             <tr>
                                 <td id=\"fr-left\" align=\"right\"><img class=\"carImg\" src='imgLoad.php?name=$row[carID]'></td>
                                 <td id=\"fr-center\">
-                                    <b>LOẠI XE	: </b>$row[typeName]<br>
-                                    <b>SỐ CHỖ 	: </b>$row[seatNum]<br>
-                                    <b>BIỂN SỐ	: </b>$row[carNumPlate]<br>
-                                    <b>GIÁ THUÊ	: </b>$row[price] VNĐ/ngày<br>";
+                                    <b>TYPE 	: </b>$row[typeName]<br>
+                                    <b>SEATS 	: </b>$row[seatNum]<br>
+                                    <b>NUMBER PLATE	: </b>$row[carNumPlate]<br>
+                                    <b>PRICE	: </b>$row[price] VND/date<br>";
                                     if(isset($_SESSION['user_login']) && $_SESSION['user_type'] == 2){
                                         //echo "<a class=\"rent\" href=\"\">Thuê Xe</a>";
                                         
@@ -120,18 +120,18 @@
                                             <input type=\"date\" name=\"from_date\">
                                             <label for=\"to\">To:</label>
                                             <input type=\"date\" name=\"to_date\"><br/>
-                                            <input type=\"submit\" value=\"Thuê Xe\"><br/>";
+                                            <input type=\"submit\" value=\"Rent Car\" class=\"rentcar\"><br/>";
                                             echo "<span id=\"notification\">$info</span>
                                         </form>";
                                     }
                                 echo "</td>
                                 <td id=\"fr-right\">";
-                                echo "Ghi nhận thuê xe";
+                                echo "Car Rental Record";
                                     echo "<table id=\"tbl-renttime\">
                                         <tr>
-                                            <th>STT</th>
-                                            <th>Ngày Thuê<br/>(YYYY-MM-DD)</th>
-                                            <th>Ngày Trả<br/>(YYYY-MM-DD)</th>
+                                            <th>No.</th>
+                                            <th>From Date<br/>(YYYY-MM-DD)</th>
+                                            <th>To Date<br/>(YYYY-MM-DD)</th>
                                         </tr>";
                                     while($row2 = $result2->fetch_assoc()){
                                         echo "<tr>

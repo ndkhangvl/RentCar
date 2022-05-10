@@ -44,3 +44,16 @@ input[type="submit"]{
     font-size:15px;
     
 }
+
+.notification {
+    font-size: 25px;
+}
+.addcar {
+    width:auto;
+    height:40px;
+    font-size:20px;
+    background-color: rgb(70, 173, 70);
+    color:white;
+    padding:5px;
+    border-radius: 5px;
+}

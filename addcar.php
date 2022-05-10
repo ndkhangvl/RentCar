@@ -36,15 +36,15 @@
         if ($type != "" && $plate != "" && $file != ""){
             $sqlins = "insert into car(carNumPlate,typeID,carImg) values('$plate',$type,'$file')";
             $resultins = $conn->query($sqlins) or die("Query failed: ".$conn->error);
-            $info ="Thêm Xe Thành Công";
-        } else $info ="Thêm Xe Thất Bại";
+            $info ="Add car successful";
+        } else $info ="Add car failed";
     }
     
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Thêm Xe</title>
+	<title>Add Car</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="style-addcar.css">
@@ -58,16 +58,16 @@
             $resulttype = $conn->query($sqltype) or die("Query failed: ".$conn->error);
             if (isset($_SESSION['user_type'])){
                 if($_SESSION['user_type'] != 1){
-                    echo "<h1>Bạn Không Phải Là Nhân Viên</h1><br/>
-                    Hãy đăng nhập bằng tài khoản nhân viên để thực hiện chức năng này";
+                    echo "<h1>You are not Staff</h1><br/>
+                    Please login with a Staff user to perform this function";
                 }
                 else {
-                    echo "<h1>Thêm Xe</h1>";
+                    echo "<h1>Add Car</h1>";
                     echo "<form method=\"POST\" action=\"#\" enctype=\"multipart/form-data\">";
                         echo "<table id=\"addcar-fr\">
                             <tr>
                                 <td class=\"col-1\"></td>
-                                <td class=\"col-2\">Loại Xe: </td>
+                                <td class=\"col-2\">Type: </td>
                                 <td class=\"col-3\">
                                     <select id=\"cartype\" name=\"cartype\">
                                     <option value='0'>--Choose a Type--</option>";
@@ -80,23 +80,23 @@
                             </tr>
                             <tr>
                                 <td class=\"col-1\"></td>
-                                <td class=\"col-2\">Biển Số: </td>
-                                <td class=\"col-3\"><input type=\"text\" placeholder=\"nhập biển số\" name=\"carplate\"></td>
+                                <td class=\"col-2\">Number Plate: </td>
+                                <td class=\"col-3\"><input type=\"text\" placeholder=\"Enter number plate\" name=\"carplate\"></td>
                                 <td class=\"col-4\">$plateerr</td>
                             </tr>
                             <tr>
                                 <td class=\"col-1\"></td>
-                                <td class=\"col-2\">Chọn Hình Ảnh: </td>
+                                <td class=\"col-2\">Choose Image: </td>
                                 <td class=\"col-3\"><input type=\"file\" name=\"carfile\"></td>
                                 <td class=\"col-4\">$fileerr</td>
                             </tr>
                             <tr>
                                 
-                                <td class=\"col-1\" colspan=4><input type=\"submit\" value=\"Thêm Xe\"></td>
+                                <td class=\"col-1\" colspan=4><input type=\"submit\" value=\"Add Car\" class=\"addcar\"></td>
                                 
                             </tr>
                         </table>";
-                        echo $info;
+                        echo "<div class=\"notification\">$info</div>";
                     echo "</form>";
                 }
             }else echo "<h1>Bạn chưa đăng nhập</h1>";

@@ -8,12 +8,12 @@
         $newPass = $accnewpass = $_POST['newpass'];
         $Confirm = $accconfirm = $_POST['confirm'];
         if (empty($oldPass)) {
-            $oldErr = '* Old pass is required';
+            $oldErr = '* Old password is required';
         } else {
             $oldPass = md5($oldPass);
         }
         if (empty($newPass)) {
-            $newErr = "* New pass is required";
+            $newErr = "* New password is required";
         } else {
             $newPass = md5($newPass);
         }
@@ -38,7 +38,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Thông tin user</title>
+	<title>User Information</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="style-user.css">
@@ -60,19 +60,19 @@
                 $resulthistory = $conn->query($sqlhistory);
 
                 if($_SESSION['user_type'] == 1) {
-                    echo "<h1>Thông tin nhân viên</h1><br/>";
+                    echo "<h1>Staff Information</h1><br/>";
                 }
                 else if($_SESSION['user_type'] == 2) {
-                    echo "<h1>Thông tin khách hàng</h1><br/>";
+                    echo "<h1>Customer Information</h1><br/>";
                 }
                 echo "<div>
                     <table class=\"user-info-1\">
                         <tr>
-                            <td class=\"left\">Họ tên: </td>
+                            <td class=\"left\">Name: </td>
                             <td class=\"right\">$row[accName]</td>
                         </tr>
                         <tr>
-                            <td class=\"left\">Số điện thoại: </td>
+                            <td class=\"left\">Phone: </td>
                             <td class=\"right\">$row[accPhone]</td>
                         </tr>
                         <tr>
@@ -86,35 +86,35 @@
                     <table class=\"user-info-2\">
                         <form method=\"POST\" action=\"#\">
                             <tr>
-                                <td class=\"left\">Mật khẩu cũ: </td>
+                                <td class=\"left\">Old Password: </td>
                                 <td class=\"center\"><input type=\"password\" id=\"oldpass\" name=\"oldpass\" placeholder=\"\"/></td>
                                 <td class=\"right\"><span class=\"error\">$oldErr</span></td>
                             </tr>
                             <tr>
-                                <td class=\"left\">Mật khẩu mới: </td>
+                                <td class=\"left\">New Password: </td>
                                 <td class=\"center\"><input type=\"password\" id=\"newpass\" name=\"newpass\" placeholder=\"\"/></td>
                                 <td class=\"right\"><span class=\"error\">$newErr</span></td>
                             </tr>
                             <tr>
-                                <td class=\"left\">Xác nhận mật khẩu mới: </td>
+                                <td class=\"left\">Confirm: </td>
                                 <td class=\"center\"><input type=\"password\" id=\"confirm\" name=\"confirm\" placeholder=\"\"/></td>
                                 <td class=\"right\"><span class=\"error\">$confirmErr</span></td>
                             </tr>
                             <tr>
-                                <td class=\"center\" colspan=\"3\"><input type=\"submit\" value=\"Đổi mật khẩu\" class=\"btn-change\"/></td>
+                                <td class=\"center\" colspan=\"3\"><input type=\"submit\" value=\"Change Password\" class=\"btn-change\"/></td>
                             </tr>
                             </form>
                             <tr><td class=\"center\" colspan=\"3\"><span class=\"success\">$success</span></td></tr>
                     </table>";
                     if($_SESSION['user_type'] == 2) {
                         echo "<br/><hr/><br/>
-                        <h1>Lịch sử thuê xe</h1>
+                        <h1>Car Rental History</h1>
                         <table class=\"user-info-3\">
                         <tr>
-                            <th>STT</th>
-                            <th>Xe</th>
-                            <th>Ngày Thuê<br/>(YYYY-MM-DD)</th>
-                            <th>Ngày Trả<br/>(YYYY-MM-DD)</th>
+                            <th>No.</th>
+                            <th>Car</th>
+                            <th>From<br/>(YYYY-MM-DD)</th>
+                            <th>To<br/>(YYYY-MM-DD)</th>
                         </tr>";
                         while ($rowhistory = $resulthistory->fetch_assoc()){
                             echo "<tr>
@@ -123,7 +123,7 @@
                                 <td>$rowhistory[dateFrom]</td>
                                 <td>$rowhistory[dateTo]</td>";
                                 if($rowhistory['dateFrom'] > (date("Y-m-d"))){
-                                    echo "<td><a href=\"delbooking.php?id=$rowhistory[dateid]\"><input type=\"button\" value=\"Delete\"/></a></td>";
+                                    echo "<td><a href=\"delbooking.php?id=$rowhistory[dateid]\"><input type=\"button\" class=\"delbooking\" value=\"Delete\"/></a></td>";
                                 }
                             echo "</tr>";
                         }
@@ -133,7 +133,7 @@
                     
 
                 echo "</div>";
-            } else echo "<h1>Bạn chưa đăng nhập</h1>";
+            } else echo "<h1>You are not Sign In</h1>";
             
             
         ?>

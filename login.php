@@ -45,7 +45,7 @@
 	<link rel="stylesheet" type="text/css" href="style-login.css">
 </head>
 <body>
-    <a href="./main.php"><input type="button" value="Home" class="btn-login"/></a>
+    <a href="./main.php"><input type="button" value="Home" class="btn-login home"/></a>
 	<div class="container-login">
     <h1>Rent Car KD</h1>
 	<!-- <img src="image/login.png"/> -->
@@ -68,14 +68,11 @@
 			</div>
             <span id="error"></span>
             <div class="form">
-                <table>
-                    <tr>
-                        <td><input type="submit"  value="LOGIN" class="btn-login"/></td>
-                    </tr>
-                </table>
+                <input type="submit"  value="LOGIN" class="btn-login"/>
 			</div>
 		</form>
         <div>
+            <br>
             <a href="./register.php"><input type="submit" value = "REGISTER?" class="btn-login"/></a>
         </div>
 	</div>

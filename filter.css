@@ -12,6 +12,8 @@
 .btn-filter {
     width: 70px;
     height: 30px;
+    background-color: rgb(100, 186, 189);
+    color:white;
 }
 
 div {

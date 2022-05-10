@@ -73,6 +73,7 @@ input[type="text"],input[type="password"]{
 	border: none;
 	background-color: rgb(135,206,250);
 	color: #fff;
+	font-size: 18px;
 }
 
 .btn-login:hover {
@@ -83,3 +84,6 @@ input[type="text"],input[type="password"]{
 	color: red;
 }
 
+.home{
+	margin:10px;
+}

@@ -15,11 +15,11 @@ if(isset($_GET["limit"], $_GET["start"]))
                 while ($row = $result->fetch_assoc()){
                 echo "<div class=\"car-info\">
                                 <img class=\"carImg\" src='imgLoad.php?name=$row[carID]'>
-                                <b>LOẠI XE	: </b>$row[typeName]<br>
-                                <b>SỐ CHỖ 	: </b>$row[seatNum]<br>
-                                <b>BIỂN SỐ	: </b>$row[carNumPlate]<br>
-                                <b>GIÁ THUÊ	: </b>$row[price] VNĐ/ngày<br>
-                                <a class=\"detail\" href=\"car.php?name=$row[carNumPlate]\">Xem chi tiết</a>
+                                <b>TYPE     : </b>$row[typeName]<br>
+                                <b>SEATS 	: </b>$row[seatNum]<br>
+                                <b>NUMBER PLATE	: </b>$row[carNumPlate]<br>
+                                <b>PRICE	: </b>$row[price] VND/day<br>
+                                <a class=\"detail\" href=\"car.php?name=$row[carNumPlate]\">Detail>></a>
                             </div>";
             }
         }

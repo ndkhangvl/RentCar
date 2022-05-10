@@ -7,7 +7,7 @@
 <html lang="vn">
 <head>
     <meta charset="UTF-8">
-    <title>Thuê Xe</title>
+    <title>Rent Car KD</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
 <?php
 	if(isset($_SESSION['user_type']) && $_SESSION['user_type'] == 1){
 		echo "<div class=\"function\">
-			<a class=\"addcar\" href=\"addcar.php\">Thêm Xe</a>
+			<a class=\"addcar\" href=\"addcar.php\">Add Car</a>
 		</div>";
 	}
 ?>
