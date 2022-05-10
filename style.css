@@ -119,8 +119,6 @@ a {
 .carImg-card {
     width:300px;
     height:250px;
-    /* float:left;
-    clear:left; */
     margin: 0px auto 15px auto;
     background-size: cover;
     overflow:hidden;
@@ -132,6 +130,7 @@ a {
     color: white;
     cursor: pointer;
     transform: scale(1.02);
+    border: 3px solid black;
 }
 
 
