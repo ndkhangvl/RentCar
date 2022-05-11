@@ -10,6 +10,24 @@ body{
 	margin-top: 50px;
 }
 
+.container-changeImg h1 {
+    color: #61DBFB;
+
+}
+
+.container-changeImg input {
+    margin-top: 20px;
+}
+
+.container-changeImg input:nth-child(3):hover {
+    border: 4px solid #61DBFB;
+}
+
+.container-changeImg input:nth-child(3):focus {
+    border: 4px solid #61DBFB;
+    outline: none;
+}
+
 #addcar-fr {
     width:100%;
     height:auto;
@@ -56,4 +74,19 @@ input[type="submit"]{
     color:white;
     padding:5px;
     border-radius: 5px;
+}
+
+input.changeImg-input {
+    background: gray;
+    color: white;
+    border-style: outset;
+    height: 50px;
+    width: 100px;
+    text-shadow: none;
+}
+
+input.changeImg-input:hover {
+    color: white;
+    background:#61DBFB;
+    outline: none;
 }

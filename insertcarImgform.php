@@ -18,7 +18,7 @@ session_start();
                     echo "<form method=\"POST\" action=\"insertcarImg.php\" enctype=\"multipart/form-data\">
                     <input type=\"file\" name=\"img_file\"><br/>
                     <input type=\"text\" name=\"carPlate\" placeholder=\"Enter car number plate\"><br/>
-                    <input type=\"submit\" value=\"upload\">
+                    <input class=\"changeImg-input\" type=\"submit\" value=\"upload\">
                 </form>";
                 }
                 else echo "You are not Staff";

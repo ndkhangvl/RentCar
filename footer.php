@@ -16,7 +16,7 @@
                 <li class="social-li-footer"><a href="https://www.facebook.com/hxpdong.01" class="fa fa-google" target="_blank"></a></li>
             </ul>
             <hr></hr>
-            <p>© 2022 Copyright: hxpdong & ndkhang</p>
+            <p>hxpdong & ndkhangvl</p>
         </div>
     </div>
 </body>

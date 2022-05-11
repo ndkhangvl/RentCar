@@ -1,4 +1,3 @@
-<!-- if else chua duoc :)) -->
 <?php
     require 'connection.php';
     $usernameErr = $passwordErr = $repasswordErr = $nameErr = $emailErr = "";
@@ -24,11 +23,11 @@
         } else {
                     // Kiểm tra xem số điện thoại đã đúng định dạng hay chưa 
             if (!preg_match("/^[0-9]*$/", $phone)) {
-                $usernameErr = "Bạn chỉ được nhập giá trị số.";
+                $usernameErr = "You can only enter numeric values.";
             }
                     //Kiểm tra độ dài của số điện thoại 
             if (strlen($phone) != 10) {
-                $usernameErr = "Số điện thoại phải là 10 ký tự.";
+                $usernameErr = "Phone number must be 10 characters.";
             }
         }
 
@@ -49,23 +48,23 @@
         }
 
         if (empty($_POST["name"])) {
-            $nameErr = "Name là trường bắt buộc.";
+            $nameErr = "Name is required.";
         } else {
             $name = $_POST["name"];
                     // Kiểm tra và chỉ cho phép nhập chữ và khoảng trắng 
             if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-                $nameErr = "Bạn chỉ được nhập chữ cái và khoảng trắng.";
+                $nameErr = "You can only enter letters and spaces.";
                 $accName = "";
             }
         }
 
         if (empty($_POST["e-mail"])) {
-            $emailErr = "Email là trường bắt buộc.";
+            $emailErr = "Email is required.";
         } else {
             $email = $_POST["e-mail"];
                     // Kiểm tra email có đúng định dạng hay không 
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $emailErr = "Email không đúng định dạng.";
+                $emailErr = "Email invalidate.";
                 $accMail = "";
             }
         }

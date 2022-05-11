@@ -133,6 +133,15 @@ a {
     border: 3px solid black;
 }
 
+.car-info-card a:hover {
+    background-color: white;
+    color: #61DBFB;
+    padding: 15px 20px;
+    display: block;
+    text-align: center;
+    margin: 20px 50px;
+}
+
 
 .carImg {
     width:350px;
