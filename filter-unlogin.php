@@ -11,8 +11,27 @@
             margin: 0;
         }
         .btn-warning {
-            background-color: yellow;
-            font-size: 30px;
+            border-radius: 4px;
+            background-color: #f4511e;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 28px;
+            padding: 10px;
+            width: 250px;
+            height: 70px;
+        }
+
+        .btn-load {
+            border-radius: 4px;
+            background-color: #f4511e;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 28px;
+            padding: 10px;
+            width: 250px;
+            height: 70px;
         }
     </style>
 </head>

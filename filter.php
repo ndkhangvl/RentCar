@@ -12,13 +12,32 @@
             margin: 0;
         }
         .btn-warning {
-            background-color: yellow;
-            font-size: 30px;
+            border-radius: 4px;
+            background-color: #f4511e;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 28px;
+            padding: 10px;
+            width: 250px;
+            height: 70px;
+        }
+
+        .btn-load {
+            border-radius: 4px;
+            background-color: #f4511e;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 28px;
+            padding: 10px;
+            width: 250px;
+            height: 70px;
         }
     </style>
 </head>
 <body>
-    <button onclick="topFunction()" id="myBtn-top" title="Go to top">Top</button>
+    <!-- <button onclick="topFunction()" id="myBtn-top" title="Go to top">Top</button> -->
         <form action="" method="GET">
                 <div class="filter-row">
                     <div class="filter">
@@ -47,14 +66,14 @@
         var action = 'inactive';
  function load_data(limit, start)
         {
-            $.ajax({
+            $.ajax({ //Gui Ajax
             url:"fetch.php",
             method:"GET",
             data:{limit:limit, start:start},
             cache:false,
             success:function(data)
         {
-            $('#load_data').append(data);
+            $('#load_data').append(data); //Neu ajax thuc hien xong neu co du lieu thi cho con khong thi khong tim thay du lieu moi
             if(data == '')
                 {
                     $('#load_data_message').html("<button type='button' class='btn-load'>No Data Found</button>");
@@ -74,12 +93,13 @@
         action = 'active';
         load_data(limit, start);
     }
-        $(window).scroll(function(){
+        $(window).scroll(function(){ //Khi keo scroll thi xu ly
+            //Neu man hinh dang o duoi cung cuoi the thi thuc hien AJAX
             if($(window).scrollTop() + $(window).height() > $("#load_data").height() && action == 'inactive')
                 {
                     action = 'active';
                     start = start + limit;
-                    setTimeout(function(){ load_data(limit, start);}, 1000);
+                    setTimeout(function(){ load_data(limit, start);}, 1000); //Thoi gian doi load trang la 1s 
                 }
         });
  });

@@ -9,9 +9,11 @@
     <meta charset="UTF-8">
     <title>Rent Car KD</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="./onTop.js"></script>
 </head>
 <body>
 <?php include('header.php') ?>
+<button onclick="topFunction()" id="myBtn-top" title="Go to top">Top</button>
 <?php
 	if(isset($_SESSION['user_type']) && $_SESSION['user_type'] == 1){
 		echo "<div class=\"function\">

@@ -41,4 +41,8 @@
     font-size:20px;
     background-color: rgb(70, 173, 70);
     color:white;
+    cursor: pointer;
+    opacity: 0.5;
 }
+
+.rentcar:hover {opacity: 1;}

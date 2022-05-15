@@ -14,7 +14,10 @@
     height: 30px;
     background-color: rgb(100, 186, 189);
     color:white;
+    opacity: 0.5;
 }
+
+.btn-filter:hover{opacity: 1;}
 
 div {
     display: block;

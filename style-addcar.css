@@ -74,7 +74,10 @@ input[type="submit"]{
     color:white;
     padding:5px;
     border-radius: 5px;
+    opacity: 0.5;
 }
+
+.addcar:hover{opacity: 1;}
 
 input.changeImg-input {
     background: gray;
