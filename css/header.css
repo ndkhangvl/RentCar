@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,500&display=swap');
+/* *{
+    padding:0;
+    margin:0;
+} */
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: 'Poppins',sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid rgb(235,231,231);
+}
+header .logo ion-icon {
+    font-size:50px;
+    color:#61DBFB;
+    animation :animate 4s infinite linear;
+}
+@keyframes animate {
+    0%   {color: red;}
+    25%  {color: yellow;}
+    50%  {color: blue;}
+    100% {color: green;} 
+}
+header #main-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+header #main-menu .item {
+    margin:0px 30px;
+}
+
+header .usernameA-test {
+    margin-left: 350px;
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+    font-size: 20px;
+    color:#61DBFB;
+    font-style: italic;
+    font-family: 'Poppins',sans-serif;
+}
+
+header .logout-test {
+    width: 200px;
+    height: 40px;
+    background:#61DBFB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link-a {
+    text-decoration: none;
+    font-size: 20px;
+    color:#61DBFB;
+    font-style: italic;
+    font-family: 'Poppins',sans-serif;
+}
+
+.logout {
+    color: white;
+    font-style: italic;
+    font-family: 'Poppins',sans-serif;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.logout-test:hover {
+    color: red;
+}

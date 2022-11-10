@@ -1,0 +1,88 @@
+body{
+	margin: 0 auto;
+}
+
+.container-login{
+	width: 500px;
+	height: 450px;
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 200px;
+}
+
+.container-login h1 {
+    /* color: 	rgb(135,206,250);
+    font-size: 40px; */
+    font-style: italic;
+	font-size:50px;
+    color:#61DBFB;
+    animation :animate 4s infinite linear;
+}
+
+@keyframes animate {
+    0%   {color: red;}
+    25%  {color: yellow;}
+    50%  {color: blue;}
+    100% {color: green;} 
+}
+
+table {
+	margin-left: 60px;
+}
+
+.form-input {
+	text-align: left;
+}
+
+.form {
+	text-align: center;
+}
+
+.form-input img{
+	width: 20px;
+	height: 20px;
+	margin-top: -70px;
+}
+
+input[type="text"],input[type="password"]{
+	margin-top: 30px;
+	height: 45px;
+	width: 300px;
+	font-size: 18px;
+	margin-bottom: 20px;
+	background-color: #fff;
+	padding-left: 40px;
+}
+
+.form-input::before{
+	content: "\f007";
+	font-family: "FontAwesome";
+	padding-left: 70px;
+	padding-top: 40px;
+	position: absolute;
+	font-size: 35px;
+	color: #2980b9; 
+}
+
+.form-input:nth-child(2)::before{
+	content: "\f023";
+}
+
+.btn-login{
+	padding: 15px 25px;
+	border: none;
+	background-color: rgb(135,206,250);
+	color: #fff;
+	font-size: 18px;
+}
+
+.btn-login:hover {
+    background-color: yellowgreen;
+}
+
+.error {
+	color: red;
+}
+.home{
+	margin:10px;
+}
