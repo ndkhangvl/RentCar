@@ -1,0 +1,71 @@
+.filter-row {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.filter {
+    margin-left: 35px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.btn-filter {
+    width: 70px;
+    height: 30px;
+    background-color: rgb(100, 186, 189);
+    color:white;
+    opacity: 0.5;
+}
+
+.btn-filter:hover{opacity: 1;}
+
+div {
+    display: block;
+}
+
+#car-list {
+    margin:10px;
+}
+/* .car-info{
+    border: solid grey 2px;
+    padding:10px;
+    margin:5px;
+    font-size: 20px;
+    overflow:auto;
+    line-height: 1.5;
+}
+.carImg {
+    width:350px;
+    height:250px;
+    float:left;
+    clear:left;
+    margin-right:15px;
+} */
+
+.detail {
+    text-decoration: none;
+    font-size: 20px;
+    color:#61DBFB;
+    font-style: italic;
+    font-family: 'Poppins',sans-serif;
+}
+
+#myBtn-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+    }
+
+#myBtn-top:hover {
+    background-color: #555;
+    }

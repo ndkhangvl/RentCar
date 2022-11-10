@@ -1,0 +1,48 @@
+
+#frame {
+    width:100%;
+    
+}
+#fr-left {
+    width:40%;
+    padding:10px;
+}
+
+#fr-center{
+    width:30%;
+    padding:10px;
+    vertical-align: top;
+}
+#fr-right {
+    width:30%;
+    text-align: center;
+    vertical-align: top;
+}
+.carImg {
+    width:550px;
+    height:350px;
+}
+#tbl-renttime {
+    width:100%;
+    border-collapse:collapse;
+}
+#tbl-renttime th,#tbl-renttime td{
+    border:2px solid black;
+    text-align:center;
+}
+
+#form-rent{
+    text-align: center;
+}
+
+.rentcar {
+    width:70%;
+    height:30px;
+    font-size:20px;
+    background-color: rgb(70, 173, 70);
+    color:white;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.rentcar:hover {opacity: 1;}
