@@ -10,5 +10,5 @@ Simple example of a car rental website
 
 # Thanks to all Contributors ⭐
 
-<a href="https://github.com/ndkhangvl/Blog_Web/graphs/contributors" align="center">
-  <img src="https://contrib.rocks/image?repo=ndkhangvl/Blog_Web" /> 
+<a href="https://github.com/ndkhangvl/Rent_Car/graphs/contributors" align="center">
+  <img src="https://contrib.rocks/image?repo=ndkhangvl/Rent_Car" /> 
